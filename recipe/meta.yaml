@@ -23,12 +23,10 @@ requirements:
   host:
     - libblas
     - liblapack
-    - netcdf4 >=1.4.2
     - libnetcdf >=4.6.2
   run:
     - libblas
     - liblapack
-    - netcdf4 >=1.4.2
     - libnetcdf >=4.6.2
 
 test:
