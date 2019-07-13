@@ -10,7 +10,7 @@ source:
   sha256: b4578c2cb101ba091a10dc914e15ac968257f5db27ca78bc9fb5dbd70bce191f
 
 build:
-  number: 1
+  number: 2
   skip: True  # [win]
 
 requirements:
@@ -23,13 +23,13 @@ requirements:
   host:
     - libblas
     - liblapack
-    - hdf5 1.10.4
-    - libnetcdf 4.6.2
+    - hdf5
+    - libnetcdf
   run:
     - libblas
     - liblapack
-    - hdf5 1.10.4
-    - libnetcdf 4.6.2
+    - hdf5
+    - libnetcdf
 
 test:
   commands:
