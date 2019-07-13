@@ -10,7 +10,7 @@ source:
   sha256: b4578c2cb101ba091a10dc914e15ac968257f5db27ca78bc9fb5dbd70bce191f
 
 build:
-  number: 0
+  number: 1
   skip: True  # [win]
 
 requirements:
@@ -24,12 +24,12 @@ requirements:
     - libblas
     - liblapack
     - netcdf4 >=1.4.2
-    - libnetcdf >=4.6.1
+    - libnetcdf >=4.6.2
   run:
     - libblas
     - liblapack
     - netcdf4 >=1.4.2
-    - libnetcdf >=4.6.1
+    - libnetcdf >=4.6.2
 
 test:
   commands:
