@@ -1,5 +1,5 @@
 {% set name = "tempest-remap" %}
-{% set version = "2.0.3" %}
+{% set version = "2.0.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://github.com/ClimateGlobalChange/tempestremap/archive/v{{ version }}.tar.gz
-  sha256: b4578c2cb101ba091a10dc914e15ac968257f5db27ca78bc9fb5dbd70bce191f
+  sha256: 2347bf804d19d515cb630a76b87e6dc6edcc1a828ff8c0f2a8a28e77794bad13
 
 build:
-  number: 3
+  number: 0
   skip: True  # [win]
 
 requirements:
@@ -25,11 +25,13 @@ requirements:
     - liblapack
     - hdf5
     - libnetcdf
+    - netcdf-cxx-legacy
   run:
     - libblas
     - liblapack
     - hdf5
     - libnetcdf
+    - netcdf-cxx-legacy
 
 test:
   commands:
@@ -41,7 +43,7 @@ about:
   home: https://github.com/ClimateGlobalChange/tempestremap
   license: BSD-3-Clause
   license_family: BSD
-  license_file: LICENSE
+  license_file: '{{ environ["RECIPE_DIR"] }}/LICENSE'
   summary: Remapping software for climate applications
   description: |
     TempestRemap is a conservative, consistent and monotone remapping package
