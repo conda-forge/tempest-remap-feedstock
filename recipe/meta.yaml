@@ -25,11 +25,13 @@ requirements:
     - liblapack
     - hdf5
     - libnetcdf
+    - netcdf-cxx-legacy
   run:
     - libblas
     - liblapack
     - hdf5
     - libnetcdf
+    - netcdf-cxx-legacy
 
 test:
   commands:
@@ -41,7 +43,7 @@ about:
   home: https://github.com/ClimateGlobalChange/tempestremap
   license: BSD-3-Clause
   license_family: BSD
-  license_file: LICENSE
+  license_file: '{{ environ["RECIPE_DIR"] }}/LICENSE'
   summary: Remapping software for climate applications
   description: |
     TempestRemap is a conservative, consistent and monotone remapping package
