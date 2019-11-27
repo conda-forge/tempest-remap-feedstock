@@ -3,6 +3,11 @@
 set -x
 set -e
 
+if [[ -n "$mpi" && "$mpi" != "nompi" ]]; then
+  export CC=mpicc
+  export CXX=mpicxx
+fi
+
 # Attempting to fix:
 #   dyld: lazy symbol binding failed: Symbol not found: _nc__create
 #     Referenced from: .../lib/libTempestRemap.0.dylib
