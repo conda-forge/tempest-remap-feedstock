@@ -1,5 +1,13 @@
 {% set name = "tempest-remap" %}
 {% set version = "2.0.2" %}
+{% set build = 1 %}
+
+# recipe-lint fails if mpi is undefined
+{% set mpi = mpi or 'nompi' %}
+{% if mpi == "nompi" %}
+# prioritize nompi via build number
+{% set build = build + 100 %}
+{% endif %}
 
 package:
   name: {{ name|lower }}
@@ -10,8 +18,21 @@ source:
   sha256: 2347bf804d19d515cb630a76b87e6dc6edcc1a828ff8c0f2a8a28e77794bad13
 
 build:
-  number: 0
   skip: True  # [win]
+  number: {{ build }}
+
+  # add build string so packages can depend on
+  # mpi or nompi variants explicitly:
+  # `tempest-remap * mpi_mpich_*` for mpich
+  # `tempest-remap * mpi_*` for any mpi
+  # `tempest-remap * nompi_*` for no mpi
+
+  {% if mpi != 'nompi' %}
+  {% set mpi_prefix = "mpi_" + mpi %}
+  {% else %}
+  {% set mpi_prefix = "nompi" %}
+  {% endif %}
+  string: "{{ mpi_prefix }}_h{{ PKG_HASH }}_{{ build }}"
 
 requirements:
   build:
@@ -23,15 +44,20 @@ requirements:
   host:
     - libblas
     - liblapack
+    # need to list hdf5, libnetcdf and netcdf-cxx-legacy twice to get version
+    # pinning from conda_build_config and build pinning from {{ mpi_prefix }}
     - hdf5
+    - hdf5 * {{ mpi_prefix }}_*
     - libnetcdf
+    - libnetcdf * {{ mpi_prefix }}_*
     - netcdf-cxx-legacy
+    - netcdf-cxx-legacy * {{ mpi_prefix }}_*
   run:
     - libblas
     - liblapack
-    - hdf5
-    - libnetcdf
-    - netcdf-cxx-legacy
+    - hdf5 * {{ mpi_prefix }}_*
+    - libnetcdf * {{ mpi_prefix }}_*
+    - netcdf-cxx-legacy * {{ mpi_prefix }}_*
 
 test:
   commands:
