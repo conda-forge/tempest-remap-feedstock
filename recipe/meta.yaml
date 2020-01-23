@@ -1,6 +1,6 @@
 {% set name = "tempest-remap" %}
 {% set version = "2.0.3" %}
-{% set build = 6 %}
+{% set build = 7 %}
 
 # recipe-lint fails if mpi is undefined
 {% set mpi = mpi or 'nompi' %}
@@ -50,21 +50,18 @@ requirements:
     - {{ mpi }}  # [mpi != 'nompi']
     - libblas
     - liblapack
-    # need to list hdf5, libnetcdf and netcdf-cxx-legacy twice to get version
+    # need to list hdf5 and libnetcdf twice to get version
     # pinning from conda_build_config and build pinning from {{ mpi_prefix }}
     - hdf5
     - hdf5 * {{ mpi_prefix }}_*
     - libnetcdf
     - libnetcdf * {{ mpi_prefix }}_*
-    - netcdf-cxx-legacy
-    - netcdf-cxx-legacy * {{ mpi_prefix }}_*
   run:
     - {{ mpi }}  # [mpi != 'nompi']
     - libblas
     - liblapack
     - hdf5 * {{ mpi_prefix }}_*
     - libnetcdf * {{ mpi_prefix }}_*
-    - netcdf-cxx-legacy * {{ mpi_prefix }}_*
 
 test:
   commands:
