@@ -52,12 +52,14 @@ requirements:
     - libnetcdf * {{ mpi_prefix }}_*
     - netcdf-cxx-legacy
     - netcdf-cxx-legacy * {{ mpi_prefix }}_*
+    - {{ mpi }}  # [mpi != 'nompi']
   run:
     - libblas
     - liblapack
     - hdf5 * {{ mpi_prefix }}_*
     - libnetcdf * {{ mpi_prefix }}_*
     - netcdf-cxx-legacy * {{ mpi_prefix }}_*
+    - {{ mpi }}  # [mpi != 'nompi']
 
 test:
   commands:
