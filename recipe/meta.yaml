@@ -47,6 +47,7 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
   host:
+    - {{ mpi }}  # [mpi != 'nompi']
     - libblas
     - liblapack
     # need to list hdf5, libnetcdf and netcdf-cxx-legacy twice to get version
@@ -57,14 +58,13 @@ requirements:
     - libnetcdf * {{ mpi_prefix }}_*
     - netcdf-cxx-legacy
     - netcdf-cxx-legacy * {{ mpi_prefix }}_*
-    - {{ mpi }}  # [mpi != 'nompi']
   run:
+    - {{ mpi }}  # [mpi != 'nompi']
     - libblas
     - liblapack
     - hdf5 * {{ mpi_prefix }}_*
     - libnetcdf * {{ mpi_prefix }}_*
     - netcdf-cxx-legacy * {{ mpi_prefix }}_*
-    - {{ mpi }}  # [mpi != 'nompi']
 
 test:
   commands:
