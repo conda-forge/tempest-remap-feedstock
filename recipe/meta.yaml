@@ -40,7 +40,7 @@ test:
   commands:
     - test -f ${PREFIX}/lib/libTempestRemap.a
     - test -f ${PREFIX}/lib/libTempestRemap${SHLIB_EXT}
-    - GenerateCSMesh --res 64 --alt --file gravitySam.000000.3d.cubedSphere.g
+    - GenerateCSMesh --res 64 --file gravitySam.000000.3d.cubedSphere.g
 
 about:
   home: https://github.com/ClimateGlobalChange/tempestremap
