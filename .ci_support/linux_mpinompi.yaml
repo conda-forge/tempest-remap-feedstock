@@ -19,6 +19,6 @@ libblas:
 liblapack:
 - 3.8.0 *netlib
 libnetcdf:
-- 4.7.3
+- 4.7.4
 mpi:
 - nompi
