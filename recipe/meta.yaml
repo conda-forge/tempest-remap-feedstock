@@ -1,6 +1,6 @@
 {% set name = "tempest-remap" %}
 {% set version = "2.0.3" %}
-{% set build = 7 %}
+{% set build = 8 %}
 
 # recipe-lint fails if mpi is undefined
 {% set mpi = mpi or 'nompi' %}
