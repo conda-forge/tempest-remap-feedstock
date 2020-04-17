@@ -13,12 +13,12 @@ cxx_compiler_version:
 docker_image:
 - condaforge/linux-anvil-comp7
 hdf5:
-- 1.10.5
+- 1.10.6
 libblas:
 - 3.8 *netlib
 liblapack:
 - 3.8.0 *netlib
 libnetcdf:
-- 4.7.3
+- 4.7.4
 mpi:
 - openmpi
