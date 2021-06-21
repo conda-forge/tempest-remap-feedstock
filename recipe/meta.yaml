@@ -7,7 +7,7 @@ package:
   version: {{ version }}
 
 source:
-  url:  https://ftp.mcs.anl.gov/pub/fathom/tempestremap-2.0.6-RC1.tar.gz
+  url: https://ftp.mcs.anl.gov/pub/fathom/tempestremap-2.0.6-RC1.tar.gz
   sha256: 3bcb973c3c499f34bdb5c73f7d7861a52937dfd64eb6405a0922b19c64bccb37
 
 build:
