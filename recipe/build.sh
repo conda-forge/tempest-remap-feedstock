@@ -20,5 +20,6 @@ fi
 
 autoreconf -vif
 ./configure --prefix=${PREFIX} --host=${HOST} \
-    --with-netcdf=${PREFIX}
+    --with-netcdf=${PREFIX} \
+    --with-hdf5=${PREFIX}
 make install
