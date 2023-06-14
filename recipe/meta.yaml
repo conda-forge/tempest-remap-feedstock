@@ -1,6 +1,6 @@
 {% set name = "tempest-remap" %}
-{% set version = "2.1.6" %}
-{% set build = 4 %}
+{% set version = "2.2.0" %}
+{% set build = 0 %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/ClimateGlobalChange/tempestremap/archive/v{{ version }}.tar.gz
-  sha256: d2208b5d6952eba5003ee7abcf22f46a254ba03f6b76dcc4d246068573d424e2
+  sha256: 548b902701ec7c3b6970e0c83c6b93bfb7fb38ecc30b6ef89de8182efd948fa3
 
 build:
   skip: true  # [win]
