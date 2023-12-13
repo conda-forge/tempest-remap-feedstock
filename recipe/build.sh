@@ -20,6 +20,8 @@ fi
 
 autoreconf -vif
 ./configure --prefix=${PREFIX} --host=${HOST} \
+    --with-blas=${PREFIX} \
+    --with-lapack=${PREFIX}
     --with-netcdf=${PREFIX} \
     --with-hdf5=${PREFIX}
 make install
