@@ -32,11 +32,6 @@ requirements:
     - hdf5 * nompi_*
     - libnetcdf
     - libnetcdf * nompi_*
-  run:
-    - libblas
-    - liblapack
-    - hdf5
-    - libnetcdf
 
 test:
   commands:
