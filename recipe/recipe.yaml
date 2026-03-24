@@ -1,18 +1,22 @@
-{% set name = "tempest-remap" %}
-{% set version = "2.2.0" %}
-{% set build = 10 %}
+schema_version: 1
+
+context:
+  name: tempest-remap
+  version: "2.2.0"
+  build: 11
 
 package:
-  name: {{ name|lower }}
-  version: {{ version }}
+  name: ${{ name }}
+  version: ${{ version }}
 
 source:
-  url: https://github.com/ClimateGlobalChange/tempestremap/archive/v{{ version }}.tar.gz
+  url: https://github.com/ClimateGlobalChange/tempestremap/archive/v${{ version }}.tar.gz
   sha256: 548b902701ec7c3b6970e0c83c6b93bfb7fb38ecc30b6ef89de8182efd948fa3
 
 build:
-  skip: true  # [win]
-  number: {{ build }}
+  skip:
+    - win
+  number: ${{ build }}
 
 requirements:
   build:
@@ -20,9 +24,9 @@ requirements:
     - automake
     - libtool
     - make
-    - {{ compiler('c') }}
-    - {{ stdlib("c") }}
-    - {{ compiler('cxx') }}
+    - ${{ compiler('c') }}
+    - ${{ stdlib("c") }}
+    - ${{ compiler('cxx') }}
   host:
     - libblas
     - liblapack
@@ -33,15 +37,14 @@ requirements:
     - libnetcdf
     - libnetcdf * nompi_*
 
-
-test:
-  commands:
-    - test -f ${PREFIX}/lib/libTempestRemap.a
-    - test -f ${PREFIX}/lib/libTempestRemap${SHLIB_EXT}
-    - GenerateCSMesh --res 64 --alt --file gravitySam.000000.3d.cubedSphere.g
+tests:
+  - script:
+      - test -f ${PREFIX}/lib/libTempestRemap.a
+      - test -f ${PREFIX}/lib/libTempestRemap${SHLIB_EXT}
+      - GenerateCSMesh --res 64 --alt --file gravitySam.000000.3d.cubedSphere.g
 
 about:
-  home: https://github.com/ClimateGlobalChange/tempestremap
+  homepage: https://github.com/ClimateGlobalChange/tempestremap
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
@@ -56,13 +59,13 @@ about:
 
     Paul A. Ullrich and Mark A. Taylor, 2015: Arbitrary-Order Conservative and
     Consistent Remapping and a Theory of Linear Maps: Part 1. Mon. Wea. Rev.,
-    143, 2419–2440, doi: 10.1175/MWR-D-14-00343.1
+    143, 2419-2440, doi: 10.1175/MWR-D-14-00343.1
 
     Paul A. Ullrich, Darshi Devendran and Hans Johansen, 2016: Arbitrary-Order
     Conservative and Consistent Remapping and a Theory of Linear Maps, Part 2.
     Mon. Weather Rev., 144, 1529-1549, doi: 10.1175/MWR-D-15-0301.1.
-  doc_url: https://github.com/ClimateGlobalChange/tempestremap
-  dev_url: https://github.com/ClimateGlobalChange/tempestremap
+  documentation: https://github.com/ClimateGlobalChange/tempestremap
+  repository: https://github.com/ClimateGlobalChange/tempestremap
 
 extra:
   recipe-maintainers:

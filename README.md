@@ -22,12 +22,11 @@ If you choose to use this software in your work, please cite our papers:
 
 Paul A. Ullrich and Mark A. Taylor, 2015: Arbitrary-Order Conservative and
 Consistent Remapping and a Theory of Linear Maps: Part 1. Mon. Wea. Rev.,
-143, 2419–2440, doi: 10.1175/MWR-D-14-00343.1
+143, 2419-2440, doi: 10.1175/MWR-D-14-00343.1
 
 Paul A. Ullrich, Darshi Devendran and Hans Johansen, 2016: Arbitrary-Order
 Conservative and Consistent Remapping and a Theory of Linear Maps, Part 2.
 Mon. Weather Rev., 144, 1529-1549, doi: 10.1175/MWR-D-15-0301.1.
-
 
 Current build status
 ====================
